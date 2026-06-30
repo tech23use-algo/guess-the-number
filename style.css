@@ -1,0 +1,214 @@
+/* ============================================
+   Guess The Number — "The Vault" theme
+   A combination-lock inspired interface.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+    --ink: #0f1620;
+    --panel: #161f2c;
+    --panel-edge: #25334a;
+    --paper: #eae3d3;
+    --gold: #d9a441;
+    --gold-bright: #f0c674;
+    --good: #6fae8c;
+    --bad: #c9684f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% -10%, #1c2738 0%, var(--ink) 55%),
+        var(--ink);
+    color: var(--paper);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 48px 20px 80px;
+}
+
+h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    letter-spacing: 0.01em;
+    color: var(--paper);
+    margin: 0 0 8px;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 3px;
+    margin: 14px auto 0;
+    background: var(--gold);
+    border-radius: 2px;
+}
+
+#container {
+    margin: 40px auto 0;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--panel);
+    border: 1px solid var(--panel-edge);
+    border-radius: 18px;
+    padding: 36px 32px 32px;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04) inset,
+        0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+#form {
+    width: 100%;
+}
+
+#form p {
+    margin: 0 0 6px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #b9c2d0;
+}
+
+#form h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--gold-bright);
+    margin: 22px 0 16px;
+}
+
+/* The dial: numeric input styled like a lock readout */
+input {
+    width: 140px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.08em;
+    color: var(--gold-bright);
+    background: #0c121b;
+    border: 1px solid var(--panel-edge);
+    border-radius: 10px;
+    padding: 12px 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.2);
+}
+
+input:disabled {
+    opacity: 0.4;
+}
+
+input::placeholder {
+    color: #4a5468;
+}
+
+#final {
+    display: block;
+    margin: 22px auto 0;
+    padding: 12px 30px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--gold);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#final:hover {
+    background: var(--gold-bright);
+    transform: translateY(-1px);
+}
+
+#final:active {
+    transform: translateY(0);
+}
+
+#status {
+    width: 100%;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px dashed var(--panel-edge);
+}
+
+#prev {
+    font-size: 0.85rem;
+    color: #8d97a8;
+    word-break: break-word;
+    margin: 0 0 10px;
+}
+
+#remain {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--paper);
+    border-radius: 999px;
+    padding: 5px 14px;
+    margin: 0 0 14px;
+}
+
+#lowOrHigh {
+    margin: 6px 0 0;
+}
+
+#lowOrHigh h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: var(--paper);
+    margin: 0;
+}
+
+/* New-game prompt, injected by script.js as a <p class="button"> */
+.button {
+    margin-top: 18px;
+}
+
+.button h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    background: var(--good);
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.button h2:hover {
+    background: #82c2a0;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+    #container {
+        padding: 28px 20px 26px;
+    }
+}
