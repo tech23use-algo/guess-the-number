@@ -6,12 +6,22 @@ const prevGuess = document.querySelector('#prev');
 const remainAttempt = document.querySelector('#remain');
 const resultPara = document.querySelector('#status');
 const position = document.querySelector("#lowOrHigh");
-
+const themeChanged = document.querySelector("#changeTheme")
+const themeRestored = document.querySelector("#restoreTheme")
+const body = document.querySelector("body")
 const p = document.createElement('p');
 
 let previousGuesses = [];
 let guessStatus = 1;
 let playGame = true;
+
+themeChanged.addEventListener('click', function() {
+    document.body.style.background = 'grey';
+})
+
+themeRestored.addEventListener('click', function() {
+    document.body.style.background =' #1c2738';
+})
 
 if(playGame) {
         finalvalue.addEventListener('click', function(e) {

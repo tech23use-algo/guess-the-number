@@ -1,8 +1,3 @@
-/* ============================================
-   Guess The Number — "The Vault" theme
-   A combination-lock inspired interface.
-   ============================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 :root {
@@ -23,9 +18,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background:
-        radial-gradient(circle at 50% -10%, #1c2738 0%, var(--ink) 55%),
-        var(--ink);
+    background:#1c2738;
     color: var(--paper);
     text-align: center;
     font-family: 'JetBrains Mono', monospace;
@@ -182,7 +175,6 @@ input::placeholder {
     margin: 0;
 }
 
-/* New-game prompt, injected by script.js as a <p class="button"> */
 .button {
     margin-top: 18px;
 }
@@ -211,4 +203,37 @@ input::placeholder {
     #container {
         padding: 28px 20px 26px;
     }
+}
+
+#tcButton {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#changeTheme {
+    height: 40px;
+    border-radius: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    background-color: #d9a441;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#restoreTheme {
+    height: 40px;
+    border-radius: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    background-color: #d9a441;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
 }
